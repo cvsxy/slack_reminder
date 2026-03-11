@@ -15,7 +15,7 @@ export const app = new SlackApp({
 // Examples:
 // @MentionReminder remind #tasks at 2024-01-25 09:00 +09:00 \n the message here
 // @MentionReminder remind #tasks at 1706180400 \n the message here
-const parser = /<@.+\>\s+remind\s+<#?@?(\w+)\|?.*\>\s+at\s+(.+)\n([^\]+)$/;
+const parser = /<@.+\>\s+remind\s+<#?@?(\w+)\|?.*\>\s+at\s+(.+)\n([^\\]+)$/;
 
 app.event("app_mention", async ({ payload, context }) => {
   if (payload.text.match(/^\s*<@.+\>\s*$/)) {
